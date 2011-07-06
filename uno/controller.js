@@ -4,7 +4,7 @@ if (typeof(Uno) == typeof(undefined)) {
 
 Uno.Controller = function(root) {
     var self = this;
-    this.root = root;
+    this.root = (root) ? root : '';
     
     this.getState = function(state) {
         return root + state;

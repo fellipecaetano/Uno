@@ -7,7 +7,7 @@ Uno.ViewManager = function(viewContext) {
    self.rootFolder = 'views';
    self.fileSuffix = '.ejs';
    self.contentPlaceholder = '#main';
-   self.viewContext = viewContext;
+   self.viewContext = (viewContext) ? viewContext : '';
    
    self.loadTemplate = function(name, data) {
        var path = buildViewPath(name);
