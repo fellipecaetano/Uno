@@ -21,6 +21,10 @@ Uno.Controller = function(root) {
    this.forward = function(state, params) {
       Uno.Controller.forward(self.getState(state), params);
    };
+   
+   this.throwError = function(status) {
+      Uno.Controller.throwError(status);
+   };
 };
 
 Uno.Controller.findHandler = function(state) {
