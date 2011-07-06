@@ -26,6 +26,10 @@ Uno.Controller.throwError = function(status) {
     var viewManager = new Uno.ViewManager('/error');
     
     switch (status) {
+    case 400:
+        viewManager.loadTemplate('400', {});
+        break;    
+    
     case 404:
         viewManager.loadTemplate('404', {});
         break;
@@ -89,6 +93,23 @@ Uno.initialize = function() {
     $(document).ajaxError(function(event, request) {
         Uno.Controller.throwError(request.status);
     });    
+};
+
+Uno.doSubmission = function(submitButton) {
+    var form = $(submitButton).parents('form');
+    var method = $(form).attr('method');
+    var action = $(form).attr('action');
+    var values = $.parseQuery($(form).serialize());
+    var reqData = {
+       url: action,
+       type: method,
+       async: false,
+       data: {
+           formData: JSON.encode(values),
+       }
+    };
+    
+    $.ajax(reqData);
 };
 
 $(function() {
