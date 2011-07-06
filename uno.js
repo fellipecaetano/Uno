@@ -15,6 +15,10 @@ Uno.Controller = function(root) {
     this.redirect = function(state) {
         $.History.go(self.getState(state));
     };
+    
+    this.forward = function(state, params) {
+        Uno.Controller.forward(self.getState(state), params);
+    };
 };
 
 Uno.Controller.findHandler = function(state) {
@@ -37,6 +41,19 @@ Uno.Controller.throwError = function(status) {
     case 500:
         viewManager.loadTemplate('500', {});
         break;
+    }    
+};
+
+Uno.Controller.forward = function(state, params) {
+    var handler = Uno.Controller.findHandler(state);
+    
+    if (handler) {
+        var data = {
+           state: state,
+           params: params
+        };
+        
+        handler(data);
     }    
 };
 
@@ -98,18 +115,9 @@ Uno.initialize = function() {
 Uno.doSubmission = function(submitButton) {
     var form = $(submitButton).parents('form');
     var method = $(form).attr('method');
-    var action = $(form).attr('action');
-    var values = $.parseQuery($(form).serialize());
-    var reqData = {
-       url: action,
-       type: method,
-       async: false,
-       data: {
-           formData: JSON.encode(values),
-       }
-    };
-    
-    $.ajax(reqData);
+    var action = $(form).attr('action').substring(1);
+    var formData = $.parseQuery($(form).serialize());
+    Uno.Controller.forward(action, formData);
 };
 
 $(function() {
