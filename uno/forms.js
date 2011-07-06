@@ -1,4 +1,4 @@
-if (typeof(Uno) == typeof(undefined)) {
+if (typeof (Uno) == typeof (undefined)) {
    var Uno = {};
 }
 
@@ -13,5 +13,5 @@ Uno.Forms = {
       var action = $(form).attr('action').substring(1);
       var formData = $.parseQuery($(form).serialize());
       Uno.Controller.forward(action, formData);
-   }      
+   }
 };

@@ -1,4 +1,4 @@
-if (typeof(Uno) == typeof(undefined)) {
+if (typeof (Uno) == typeof (undefined)) {
    var Uno = {};
 }
 
@@ -7,22 +7,22 @@ Uno.ViewManager = function(viewContext) {
    self.rootFolder = 'views';
    self.fileSuffix = '.ejs';
    self.contentPlaceholder = '#main';
-   self.viewContext = (viewContext) ? viewContext : '';
-   
+   self.viewContext = viewContext;
+
    self.loadTemplate = function(name, data) {
-       var path = buildViewPath(name);
-       $(self.contentPlaceholder).html(path, data);
-       
-       if (data.title) {
-           self.changePageTitle(data.title);
-       }
+      var path = buildViewPath(name);
+      $(self.contentPlaceholder).html(path, data);
+
+      if (data.title) {
+         self.changePageTitle(data.title);
+      }
    };
-   
+
    self.changePageTitle = function(title) {
-       $('head title').html(title);
+      $('head title').html(title);
    };
-   
-   function buildViewPath(name) {
-       return self.rootFolder + self.viewContext + '/' + name + self.fileSuffix;
+
+   var buildViewPath = function(name) {
+      return self.rootFolder + self.viewContext + '/' + name + self.fileSuffix;
    };
 };
