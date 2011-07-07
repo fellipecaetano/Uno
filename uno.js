@@ -1,8 +1,10 @@
 var Uno = {};
 
-Uno.loadScript = function(url) {
+Uno.loadScript = function(url, absolutely) {
+   var folder = (absolutely) ? '' : 'js/';
+   
    var reqData = {
-      url: url,
+      url: folder + url,
       dataType: 'script',
       async: false
    };
@@ -12,13 +14,13 @@ Uno.loadScript = function(url) {
 
 (function() {
    var loadAllUnoDependencies = function() {
-      Uno.loadScript('js/tools/jquerymx.js');
-      Uno.loadScript('js/tools/history.js');
-      Uno.loadScript('js/tools/json.js');
-      Uno.loadScript('js/tools/queryparser.js');
-      Uno.loadScript('js/uno/controller.js');
-      Uno.loadScript('js/uno/view_manager.js');
-      Uno.loadScript('js/uno/forms.js');
+      Uno.loadScript('tools/jquerymx.js');
+      Uno.loadScript('tools/history.js');
+      Uno.loadScript('tools/json.js');
+      Uno.loadScript('tools/queryparser.js');
+      Uno.loadScript('uno/controller.js');
+      Uno.loadScript('uno/view_manager.js');
+      Uno.loadScript('uno/forms.js');
    };
 
    var initUno = function() {
