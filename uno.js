@@ -25,29 +25,9 @@ Uno.loadScript = function(url) {
       loadAllUnoDependencies();
 
       $.History.bind(function(state) {
-         var match = state.match(/\?.+$/);
-         var params = {};
-
-         if (match) {
-            var query = match[0];
-            params = $.parseQuery(query);
-            state = state.replace(query, '');
-         }
-
-         var handler = Uno.Controller.findHandler(state);
-
-         if (handler) {
-            var forwardData = {
-               state: state,
-               params: params
-            };
-
-            handler(forwardData);
-         } else {
-            Uno.Controller.throwError(404);
-         }
+         Uno.Controller.forward(state);
       });
-
+      
       $(document).ajaxError(function(event, request) {
          Uno.Controller.throwError(request.status);
       });
