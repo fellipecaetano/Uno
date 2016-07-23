@@ -1,0 +1,33 @@
+<h1 class="mainHeader">
+   <%= title %>
+</h1>
+
+<form id="songMaitenanceForm" action="#/songs/save" method="POST">
+   <% if (song.errors && song.errors['title']) { %>
+	   <div class="field fieldWithErrors">
+	      <label for="title">Title: </label>
+	      <input type="text" id="title" name="title" value="<%= song.title %>"
+	          maxlength="255" class="initialFocus" />
+		   <div class="validationError">
+		   	<%= song.errors['title'] %>
+		   </div>
+	   </div>	  
+	<% } else { %>
+	   <div class="field">
+	      <label for="title">Title: </label>
+	      <input type="text" id="title" name="title" value="<%= song.title %>"
+	          maxlength="255" class="initialFocus" />
+	   </div> 
+	<% } %>	
+	
+	<% if (song.id) { %>
+		<div class="hiddenField">
+	      <input type="hidden" id="id" name="id" value="<%= song.id %>" />          
+		</div>	
+	<% } %>     
+	
+   <div class="buttons">
+      <input type="button" value="Save" onclick="Uno.Forms.doSubmission(this);" />
+		<input type="button" value="Cancel" onclick="window.history.back();" />
+   </div>
+</form>

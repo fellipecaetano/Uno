@@ -1,0 +1,41 @@
+<h1 class="mainHeader">
+   <%= title %>
+</h1>
+
+<div class="entityVisualization">
+   <div class="field">
+      <label for="id">
+         ID:
+      </label>
+      
+      <span class="value" id="title">
+         <%= song.id %>
+      </span>
+   </div>  
+   
+   <div class="field">
+      <label for="title">
+         Title: 
+      </label>
+      
+      <span class="value" id="title">
+         <%= song.title %>
+      </span>
+   </div   
+</div>
+
+<div class="buttons">
+   <a href="#/songs/edit?id=<%= song.id %>">
+      Edit
+   </a>
+   
+   <a href="#/songs/delete?id=<%= song.id %>">
+      Delete
+   </a>   
+   
+   <span class="detachedToRight">
+      <a href="javascript:void(0);" onclick="window.history.back();">
+         Back
+      </a>
+   </span>   
+</div>

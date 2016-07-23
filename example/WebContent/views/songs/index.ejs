@@ -1,0 +1,83 @@
+<h1 class="mainHeader">
+	<%= title %>
+</h1>
+
+<div id="filters" class="section">
+   <h3>
+      Filters
+   </h3>
+   
+   <form id="songSearchForm" action="#/songs/search">
+      <div class="field inlineField">
+         <label for="id">
+            ID:
+         </label>
+         
+         <input type="text" id="id" name="id" value="<%= filter.id %>" />
+      </div>
+      
+      <div class="field inlineField">
+         <label for="title">
+            Title: 
+         </label>
+         
+         <input type="text" id="title" name="title" value="<%= filter.title %>" />
+      </div>      
+      
+      <div class="buttons inlineButtons">
+         <input type="button" value="Search" onclick="Uno.Forms.doSubmission(this);" />
+      </div>
+   </form>
+</div>
+
+<hr class="sectionSeparator" />
+
+<div id="result" class="section">
+   <h3>
+      Songs
+   </h3>
+
+   <% if ($.isEmptyObject(songs)) { %>
+	  <p class="emptyResultWarn">
+	     Your search did not return any songs.			
+	  </p>
+	<% } else { %>
+	   <table class="resultTable">
+	      <thead>
+	         <tr>
+	            <th id="idHeader">
+	               ID
+	            </th>
+	   
+	            <th id="titleHeader">
+	               Title
+	            </th>
+	   
+	            <th class="actionsHeader">
+	               Actions
+	            </th>
+	         </tr>
+	      </thead>
+	   
+	      <tbody>
+	         <% $(songs).each(function(index, song) { %>
+	            <tr>
+	               <td><%= song.id %></td>
+	               <td><%= song.title %></td>
+	               <td class="actionsColumn">
+	                  <a href="#/songs/show?id=<%= song.id %>">
+	                     <img src="img/inspect.png" title="Show" />
+	                  </a>
+	                  <a href="#/songs/edit?id=<%= song.id %>">
+	                     <img src="img/edit.png" title="Edit" />
+	                  </a>
+	                  <a href="#/songs/delete?id=<%= song.id %>">
+	                     <img src="img/delete.png" title="Delete" />
+	                  </a>
+	               </td>
+	            </tr>
+	         <% }); %>
+	      </tbody>
+	   </table>	
+	<% } %>
+</div>

@@ -1,0 +1,181 @@
+body {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+div#main {
+   width: 100%;
+}
+
+div#head {
+   width: 100%;
+   height: 130px;
+}
+
+div#logo {
+   width: 400px;
+   float: left;
+}
+
+div#menu {
+   float: left;
+   margin-left: 30px;
+   margin-top: 78px;
+}
+
+div#menu a {
+   font-weight: bold;
+}
+
+div#menu .itemSeparator {
+   color: #E9E9E9;
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+a, a:visited {
+   color: #4183C4;
+   text-decoration: none;
+}
+
+h1.mainHeader {
+   border-bottom: dotted 2px #C9C9C9;
+   padding: 3px;
+}
+
+h3.sectionSeparator {
+   border: solid 1px #C9C9C9;
+}
+
+form div.field {
+   margin-bottom: 10px;
+}
+
+div.field label {
+   width: 150px;
+   float: left;
+   text-align: right;
+   margin-right: 10px;
+}
+
+form div.field label {
+   margin-top: 8px;
+}
+
+form div.field input[type =
+"text"], form div.field input[type = "password"] {
+   color: #666666;
+   padding: 5px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+form div.fieldWithErrors input[type =
+"text"], form div.fieldWithErrors input[type = "password"] {
+   border: solid 1px red;
+}
+
+form div.fieldWithErrors div.validationError {
+   color: red;
+   font-size: 10pt;
+   margin-left: 160px;
+}
+
+form div.hiddenField {
+   display: none;
+}
+
+form div.inlineField {
+   display: inline;
+   width: 300px;
+}
+
+form div.inlineField label {
+   float: none;
+   margin-left: 130px;
+}
+
+form#songMaitenanceForm {
+   width: 530px;
+}
+
+div.buttons {
+   float: right;
+}
+
+div.buttons a, div.buttons input[type =
+"button"], div.buttons input[type = "submit"], div.buttons button {
+   padding: 5px;
+   border-radius: 4px 4px 4px 4px;
+   -moz-border-radius: 4px 4px 4px 4px;
+   cursor: pointer;
+   cursor: hand;
+   background-color: #EFEFEF;
+   font-family: Arial, Helvetica, sans-serif;
+   border: 1px solid #CCCCCC;
+   color: black;
+   font-size: 14px;
+   margin-right: 3px;
+   text-align: center;
+}
+
+div.buttons span.detachedToRight {
+   margin-left: 40px;
+}
+
+div.buttons span.detachedToLeft {
+   margin-right: 40px;
+}
+
+div.inlineButtons {
+   display: inline;
+   float: none;
+   margin-left: 40px;
+}
+
+table.resultTable {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+table.resultTable th, table.resultTable td {
+   border: solid 1px gray;
+   padding: 5px;
+}
+
+table.resultTable th {
+   text-align: left;
+}
+
+table.resultTable th.actionsHeader {
+   width: 90px;
+   text-align: center;
+}
+
+table.resultTable td.actionsColumn {
+   padding: 5px;
+   text-align: center;
+}
+
+table.resultTable th#idHeader {
+   width: 80px;
+}
+
+div.entityVisualization {
+   width: 500px;
+}
+
+div.entityVisualization div.field {
+   margin-bottom: 10px;
+}
+
+div.entityVisualization div.field label {
+   font-weight: bold;
+}
+
+div.section {
+   margin-bottom: 25px;
+   padding-left: 5px;
+}
+
+.emptyResultWarn {
+	font-style: italic;
+}
